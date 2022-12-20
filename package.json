@@ -1,0 +1,28 @@
+{
+  "name": "@gluestack/helpers",
+  "version": "0.0.1",
+  "description": "Helpers for GlueStack framework",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gluestack/helpers"
+  },
+  "keywords": [
+    "npm",
+    "gluestack-helpers"
+  ],
+  "author": "Shivam Singhal",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@types/node": "^18.11.16",
+    "dockerode": "^3.3.4",
+    "json-to-pretty-yaml": "^1.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
