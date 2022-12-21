@@ -198,16 +198,24 @@ var DockerodeHelper = (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 opts = {
-                    limit: 1,
-                    filters: "{\"name\": [\"".concat(name, "\"]}")
+                    all: true
                 };
                 return [2, new Promise(function (resolve, reject) {
                         _this.docker.listContainers(opts, function (err, containers) {
                             if (err) {
-                                reject(err);
+                                resolve(null);
                             }
                             else {
-                                resolve(containers && containers[0]);
+                                for (var _i = 0, containers_1 = containers; _i < containers_1.length; _i++) {
+                                    var container = containers_1[_i];
+                                    for (var _a = 0, _b = container.Names; _a < _b.length; _a++) {
+                                        var Name = _b[_a];
+                                        if (Name === "/".concat(name)) {
+                                            return resolve(container);
+                                        }
+                                    }
+                                }
+                                resolve(null);
                             }
                         });
                     })];

@@ -110,16 +110,22 @@ export class DockerodeHelper {
 
   static async getContainerByName(name: string) {
     var opts = {
-      limit: 1,
-      filters: `{"name": ["${name}"]}`,
+      all: true,
     };
 
     return new Promise((resolve, reject) => {
       this.docker.listContainers(opts, function (err: any, containers: any) {
         if (err) {
-          reject(err);
+          resolve(null);
         } else {
-          resolve(containers && containers[0]);
+          for (const container of containers) {
+            for (const Name of container.Names) {
+              if (Name === `/${name}`) {
+                return resolve(container);
+              }
+            }
+          }
+          resolve(null);
         }
       });
     });
