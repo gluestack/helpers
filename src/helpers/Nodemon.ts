@@ -2,15 +2,20 @@ import { spawn } from "child_process";
 import kill from "tree-kill";
 
 export class NodemonHelper {
-  static async up(cwd: string, script: string, portNumber: number) {
+  static async up(
+    cwd: string,
+    portNumber: number,
+    commanderArray: Array<string>,
+  ) {
     return new Promise(async (resolve, reject) => {
-      const commandArr = script.split(" ");
-      const args = commandArr.shift();
-      const process: any = spawn(args, commandArr, {
+      const args = commanderArray.shift();
+      const process: any = spawn(args, commanderArray, {
         cwd: cwd,
-        stdio: "inherit",
+        stdio: "ignore",
+        detached: true,
       });
       if (process) {
+        process.unref();
         return resolve({
           status: "up",
           portNumber: portNumber,
