@@ -45,20 +45,21 @@ var tree_kill_1 = __importDefault(require("tree-kill"));
 var NodemonHelper = (function () {
     function NodemonHelper() {
     }
-    NodemonHelper.up = function (cwd, script, portNumber) {
+    NodemonHelper.up = function (cwd, portNumber, commanderArray) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
                 return [2, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-                        var commandArr, args, process;
+                        var args, process;
                         return __generator(this, function (_a) {
-                            commandArr = script.split(" ");
-                            args = commandArr.shift();
-                            process = (0, child_process_1.spawn)(args, commandArr, {
+                            args = commanderArray.shift();
+                            process = (0, child_process_1.spawn)(args, commanderArray, {
                                 cwd: cwd,
-                                stdio: "inherit"
+                                stdio: "ignore",
+                                detached: true
                             });
                             if (process) {
+                                process.unref();
                                 return [2, resolve({
                                         status: "up",
                                         portNumber: portNumber,
