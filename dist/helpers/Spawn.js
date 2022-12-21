@@ -45,6 +45,36 @@ var tree_kill_1 = __importDefault(require("tree-kill"));
 var SpawnHelper = (function () {
     function SpawnHelper() {
     }
+    SpawnHelper.run = function (cwd, commanderArray) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+                        var args, process;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0:
+                                    args = commanderArray.shift();
+                                    process = (0, child_process_1.spawn)(args, commanderArray, {
+                                        cwd: cwd,
+                                        stdio: [null, "pipe", "inherit"]
+                                    });
+                                    if (!process) return [3, 2];
+                                    return [4, new Promise(function (res, rej) {
+                                            process.on("close", function () {
+                                                return resolve(process.pid);
+                                            });
+                                        })];
+                                case 1:
+                                    _a.sent();
+                                    _a.label = 2;
+                                case 2: return [2, reject(new Error("Process not created"))];
+                            }
+                        });
+                    }); })];
+            });
+        });
+    };
     SpawnHelper.start = function (cwd, commanderArray) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
