@@ -121,6 +121,8 @@ var DockerodeHelper = (function () {
                                     if (container) {
                                         container.remove({ force: true }, function (err, data) {
                                             if (err) {
+                                                if (err.statusCode === 404)
+                                                    return resolve(true);
                                                 return reject(err);
                                             }
                                             else {

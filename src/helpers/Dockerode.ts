@@ -63,6 +63,7 @@ export class DockerodeHelper {
       if (container) {
         container.remove({ force: true }, (err: any, data: any) => {
           if (err) {
+            if (err.statusCode === 404) return resolve(true);
             return reject(err);
           } else {
             return resolve(true);
