@@ -50,19 +50,24 @@ var SpawnHelper = (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 return [2, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-                        var args, process;
+                        var args, child;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0:
                                     args = commanderArray.shift();
-                                    process = (0, child_process_1.spawn)(args, commanderArray, {
+                                    child = (0, child_process_1.spawn)(args, commanderArray, {
                                         cwd: cwd,
                                         stdio: [null, "pipe", "inherit"]
                                     });
-                                    if (!process) return [3, 2];
+                                    if (!child) return [3, 2];
                                     return [4, new Promise(function (res, rej) {
-                                            process.on("close", function () {
-                                                return resolve(process.pid);
+                                            child.stdout.on("data", function (data) {
+                                                if (data.toString().includes("Initialize project with metadata & migrations")) {
+                                                    child.stdin.write('n\n');
+                                                }
+                                            });
+                                            child.on("close", function () {
+                                                return resolve(child.pid);
                                             });
                                         })];
                                 case 1:

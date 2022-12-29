@@ -5,14 +5,19 @@ export class SpawnHelper {
   static async run(cwd: string, commanderArray: Array<string>) {
     return new Promise(async (resolve, reject) => {
       const args = commanderArray.shift();
-      const process: any = spawn(args, commanderArray, {
+      const child: any = spawn(args, commanderArray, {
         cwd: cwd,
         stdio: [null, "pipe", "inherit"],
       });
-      if (process) {
+      if (child) {
         await new Promise((res, rej) => {
-          process.on("close", function () {
-            return resolve(process.pid);
+          child.stdout.on("data", (data: any) => {
+            if (data.toString().includes("Initialize project with metadata & migrations")) {
+              child.stdin.write('n\n');
+            }
+          })
+          child.on("close", function () {
+            return resolve(child.pid);
           });
         });
       }
