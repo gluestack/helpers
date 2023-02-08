@@ -56,7 +56,8 @@ var NodemonHelper = (function () {
                             process = (0, child_process_1.spawn)(args, commanderArray, {
                                 cwd: cwd,
                                 stdio: "ignore",
-                                detached: true
+                                detached: true,
+                                shell: true
                             });
                             if (process) {
                                 process.unref();

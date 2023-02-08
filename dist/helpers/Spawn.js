@@ -57,7 +57,8 @@ var SpawnHelper = (function () {
                                     args = commanderArray.shift();
                                     child = (0, child_process_1.spawn)(args, commanderArray, {
                                         cwd: cwd,
-                                        stdio: [null, "pipe", "inherit"]
+                                        stdio: [null, "pipe", "inherit"],
+                                        shell: true
                                     });
                                     if (!child) return [3, 2];
                                     return [4, new Promise(function (res, rej) {
@@ -91,7 +92,8 @@ var SpawnHelper = (function () {
                             process = (0, child_process_1.spawn)(args, commanderArray, {
                                 cwd: cwd,
                                 stdio: "ignore",
-                                detached: true
+                                detached: true,
+                                shell: true
                             });
                             if (process) {
                                 process.unref();

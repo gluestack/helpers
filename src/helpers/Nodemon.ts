@@ -13,6 +13,7 @@ export class NodemonHelper {
         cwd: cwd,
         stdio: "ignore",
         detached: true,
+        shell: true
       });
       if (process) {
         process.unref();

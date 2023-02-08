@@ -8,6 +8,7 @@ export class SpawnHelper {
       const child: any = spawn(args, commanderArray, {
         cwd: cwd,
         stdio: [null, "pipe", "inherit"],
+        shell: true
       });
       if (child) {
         await new Promise((res, rej) => {
@@ -32,6 +33,7 @@ export class SpawnHelper {
         cwd: cwd,
         stdio: "ignore",
         detached: true,
+        shell: true
       });
       if (process) {
         process.unref();
