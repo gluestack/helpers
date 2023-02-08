@@ -1,6 +1,6 @@
 {
   "name": "@gluestack/helpers",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Helpers for GlueStack framework",
   "repository": {
     "type": "git",
@@ -10,7 +10,6 @@
     "npm",
     "gluestack-helpers"
   ],
-  "author": "Shivam Singhal",
   "license": "ISC",
   "main": "dist/index.js",
   "scripts": {
