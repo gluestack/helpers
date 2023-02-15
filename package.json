@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@types/node": "^18.11.16",
+    "cli-table3": "^0.6.3",
+    "colors": "^1.4.0",
     "dockerode": "^3.3.4",
     "dotenv": "^16.0.3",
     "json-to-pretty-yaml": "^1.2.2",
@@ -25,8 +27,8 @@
     "tree-kill": "^1.2.2"
   },
   "devDependencies": {
-    "typescript": "^4.9.4",
     "nodemon": "^2.0.20",
-    "tree-kill": "^1.2.2"
+    "tree-kill": "^1.2.2",
+    "typescript": "^4.9.4"
   }
 }
