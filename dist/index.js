@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.GlobalEnv = exports.SpawnHelper = exports.NodemonHelper = exports.DockerodeHelper = void 0;
+exports.ConsoleTable = exports.GlobalEnv = exports.SpawnHelper = exports.NodemonHelper = exports.DockerodeHelper = void 0;
 var Dockerode_1 = require("./helpers/Dockerode");
 exports.DockerodeHelper = Dockerode_1.DockerodeHelper;
 var Nodemon_1 = require("./helpers/Nodemon");
@@ -9,4 +9,6 @@ var Spawn_1 = require("./helpers/Spawn");
 exports.SpawnHelper = Spawn_1.SpawnHelper;
 var GlobalEnv_1 = require("./helpers/GlobalEnv");
 exports.GlobalEnv = GlobalEnv_1.GlobalEnv;
+var ConsoleTable_1 = require("./helpers/ConsoleTable");
+exports.ConsoleTable = ConsoleTable_1.ConsoleTable;
 //# sourceMappingURL=index.js.map
