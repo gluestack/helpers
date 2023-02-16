@@ -1,6 +1,6 @@
 {
   "name": "@gluestack/helpers",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Helpers for GlueStack framework",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "tsc --watch",
-    "build": "tsc"
+    "build": "tsc --declaration"
   },
   "dependencies": {
     "@types/node": "^18.11.16",
