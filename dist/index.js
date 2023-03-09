@@ -11,7 +11,7 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
     o[k2] = m[k];
 }));
 exports.__esModule = true;
-exports.writeContentToFilePath = exports.removeSpecialChars = exports.addTrailingSlash = exports.getDirectories = exports.waitInSeconds = exports.getOSFolders = exports.createFolder = exports.ConsoleTable = exports.DockerodeHelper = exports.fileExists = exports.writeFile = exports.Workspaces = exports.NodemonHelper = exports.GlobalEnv = exports.readFile = exports.getFiles = exports.SpawnHelper = void 0;
+exports.jsonToEnv = exports.envToJson = exports.getPrefix = exports.getCrossEnvKey = exports.writeContentToFilePath = exports.removeSpecialChars = exports.addTrailingSlash = exports.getDirectories = exports.waitInSeconds = exports.getOSFolders = exports.createFolder = exports.ConsoleTable = exports.DockerodeHelper = exports.fileExists = exports.writeFile = exports.Workspaces = exports.NodemonHelper = exports.GlobalEnv = exports.readFile = exports.getFiles = exports.SpawnHelper = void 0;
 var Spawn_1 = require("./helpers/Spawn");
 __createBinding(exports, Spawn_1, "SpawnHelper");
 var get_files_1 = require("./helpers/get-files");
@@ -46,4 +46,10 @@ var remove_special_chars_1 = require("./helpers/remove-special-chars");
 __createBinding(exports, remove_special_chars_1, "removeSpecialChars");
 var write_content_to_filepath_1 = require("./helpers/write-content-to-filepath");
 __createBinding(exports, write_content_to_filepath_1, "writeContentToFilePath");
+var get_cross_env_key_1 = require("./helpers/get-cross-env-key");
+__createBinding(exports, get_cross_env_key_1, "getCrossEnvKey");
+__createBinding(exports, get_cross_env_key_1, "getPrefix");
+var dotenv_json_1 = require("./helpers/dotenv-json");
+__createBinding(exports, dotenv_json_1, "envToJson");
+__createBinding(exports, dotenv_json_1, "jsonToEnv");
 //# sourceMappingURL=index.js.map

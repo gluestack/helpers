@@ -15,3 +15,5 @@ export { getDirectories } from "./helpers/get-directories";
 export { addTrailingSlash } from "./helpers/add-trailing-slash";
 export { removeSpecialChars } from "./helpers/remove-special-chars";
 export { writeContentToFilePath } from "./helpers/write-content-to-filepath";
+export { getCrossEnvKey, getPrefix } from "./helpers/get-cross-env-key";
+export { envToJson, jsonToEnv } from "./helpers/dotenv-json";
