@@ -26,7 +26,7 @@ export function jsonToEnv(envConfig: any): string {
   
   try {
     for (const key in envConfig) {
-      data = data + `${key}=${envConfig[key]}
+      data = data + `${key}="${envConfig[key]}"
 `;
     }
   } catch (err) {}

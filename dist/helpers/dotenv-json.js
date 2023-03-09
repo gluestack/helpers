@@ -74,7 +74,7 @@ function jsonToEnv(envConfig) {
     var data = "";
     try {
         for (var key in envConfig) {
-            data = data + "".concat(key, "=").concat(envConfig[key], "\n");
+            data = data + "".concat(key, "=\"").concat(envConfig[key], "\"\n");
         }
     }
     catch (err) { }
