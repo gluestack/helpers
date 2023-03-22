@@ -8,6 +8,7 @@ export class Workspaces {
 			return;
 		}
 
+		delete require.cache[require.resolve(filepath)];
 		const data = require(filepath);
 
 		// Add the new workspace to the workspaces index

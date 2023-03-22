@@ -52,6 +52,7 @@ var Workspaces = (function () {
                         if (!(_a.sent())) {
                             return [2];
                         }
+                        delete require.cache[require.resolve(filepath)];
                         data = require(filepath);
                         if (!data.workspaces) {
                             data.workspaces = [];
