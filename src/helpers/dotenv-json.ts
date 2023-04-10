@@ -26,8 +26,13 @@ export function jsonToEnv(envConfig: any): string {
   
   try {
     for (const key in envConfig) {
-      data = data + `${key}="${envConfig[key]}"
+      if (envConfig[key].includes(" ")) {
+        data = data + `${key}="${envConfig[key]}"
 `;
+      } else {
+        data = data + `${key}=${envConfig[key]}
+`;
+      }
     }
   } catch (err) {}
   return data;
